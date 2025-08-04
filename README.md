@@ -13,12 +13,12 @@ A Physiological-Constrained Particle Swarm Optimization Approach for fNIRS Hemod
 
 For Oxyhemoglobin (**HbO**) analysis:
 ```Matlab
-[mdl, hb_param] = adaptive_hrf_glm(freq, hbo_signal, stimulus, lambda, P_lb_hbo, P_ub_hbo);
+[mdl, hrf_param] = adaptive_hrf_glm(freq, hbo_signal, stimulus, lambda, P_lb_hbo, P_ub_hbo);
 ```
 
 For Deoxyhemoglobin (**HbR**) analysis:
 ```Matlab
-[mdl, hb_param] = adaptive_hrf_glm(freq, - hbr_signal, stimulus, lambda, P_lb_hbr, P_ub_hbr);
+[mdl, hrf_param] = adaptive_hrf_glm(freq, - hbr_signal, stimulus, lambda, P_lb_hbr, P_ub_hbr);
 ```
 
 Extract GLM statistics
@@ -46,7 +46,7 @@ p_value = mdl.Coefficients.pValue(2);
 ### Outputs
 - `mdl`: A `LinearModel` object representing the least-squares fit of regressors to the data (see: [fitlm documentation](https://uk.mathworks.com/help/stats/fitlm.html#bt0ck7o-mdl))
 
-- `hb_param`: A [1 x 6] vector of the optimized HRF parameters $(m_1^{\text{opt}}, m_2^{\text{opt}}, m_3^{\text{opt}}, m_4^text{opt}, c_1^{\text{opt}}, c_2^{\text{opt}})$
+- `hrf_param`: A [1 x 6] vector of the optimized HRF parameters $(m_1^{\text{opt}}, m_2^{\text{opt}}, m_3^{\text{opt}}, m_4^{\text{opt}}, c_1^{\text{opt}}, c_2^{\text{opt}})$
 
 ### Recommended Inputs Values
 ```Matlab

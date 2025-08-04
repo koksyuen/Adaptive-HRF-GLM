@@ -1,4 +1,4 @@
-function [mdl, hb_param] = adaptive_hrf_glm(freq, signal, stimulus, lambda, P_lb, P_ub, options)
+function [mdl, hrf_param] = adaptive_hrf_glm(freq, signal, stimulus, lambda, P_lb, P_ub, options)
 % adaptive hemodynamic response function (HRF) modeling within the General Linear Model framework for activation mapping 
 % in functional near-infrared spectroscopy analysis 
 %
@@ -25,10 +25,10 @@ end
 
 %% particle swarm optimization
 optFun = @(x)objfunc(x,freq,signal,stimulus,lambda);  % objective function definition
-hb_param = particleswarm(optFun,length(P_lb),P_lb,P_ub,options);  % estimates optimal HRF parameters
+hrf_param = particleswarm(optFun,length(P_lb),P_lb,P_ub,options);  % estimates optimal HRF parameters
 
 %% general linear model
-hrf = half_cosine_hrf(hb_param,freq); % creates HRF based on the optimal parameters
+hrf = half_cosine_hrf(hrf_param,freq); % creates HRF based on the optimal parameters
 X = conv2(stimulus,hrf');  % convolves hrf with boxcar function to create a regressor
 X = X(1:length(stimulus),:); 
 mdl = fitlm(X, signal, 'RobustOpts', 'on');  % estimates beta-weight with robust fitting
