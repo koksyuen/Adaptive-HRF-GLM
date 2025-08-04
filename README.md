@@ -9,11 +9,6 @@ Matlab:
 signals_corrected = TDDR(signals, sample_rate);
 ```
 
-Python:
-```Python
-from TDDR import TDDR
-signals_corrected = TDDR(signals, sample_rate);
-```
 
 ### Inputs
 **signals**: A [sample x channel] matrix of uncorrected optical density data
@@ -22,5 +17,3 @@ signals_corrected = TDDR(signals, sample_rate);
 
 ### Outputs
    **signals_corrected**: A [sample x channel] matrix of corrected optical density data
-#### Homer2
-While Homer2 does not yet contain the TDDR method, a Homer2-compatible script is available in this repository at `toolboxes/Homer2/hmrMotionCorrectTDDR.m`. Usage is similar to other motion correction scripts shipped by Homer2.
