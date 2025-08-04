@@ -37,16 +37,16 @@ p_value = mdl.Coefficients.pValue(2);
 
 - `lambda`: A scalar representing the regularization coefficient governing the weight of physiological polarity–constrained regularization in the objective function
 
-- `P_lb`: A [1 x 6] vector specifying the lower bounds for six HRF parameters $(m_1,\;m_2,\;m_3,\;m_4,\;c_1,\;c_2)$
+- `P_lb`: A [1 x 6] vector specifying the lower bounds for six HRF parameters $(m_1^text{L}, m_2^text{L}, m_3^text{L}, m_4^text{L}, c_1^text{L}, c_2^text{L})$
 
-- `P_ub`: A [1 x 6] vector specifying the upper bounds for six HRF parameters $(m_1,\;m_2,\;m_3,\;m_4,\;c_1,\;c_2)$
+- `P_ub`: A [1 x 6] vector specifying the upper bounds for six HRF parameters $(m_1^text{U}, m_2^text{U}, m_3^text{U}, m_4^text{U}, c_1^text{U}, c_2^text{U})$
 
 - `options` *(optional)*: A structure specifying options for particle swarm optimization (see: [PSO documentation](https://uk.mathworks.com/help/gads/particleswarm.html#budidgf-options))
 
 ### Outputs
 - `mdl`: A `LinearModel` object representing the least-squares fit of regressors to the data (see: [fitlm documentation](https://uk.mathworks.com/help/stats/fitlm.html#bt0ck7o-mdl))
 
-- `hb_param`: A [1 x 6] vector of the optimized HRF parameters $(m_1,\;m_2,\;m_3,\;m_4,\;c_1,\;c_2)$
+- `hb_param`: A [1 x 6] vector of the optimized HRF parameters $(m_1^text{opt}, m_2^text{opt}, m_3^text{opt}, m_4^text{opt}, c_1^text{opt}, c_2^text{opt})$
 
 ### Recommended Inputs Values
 ```Matlab
